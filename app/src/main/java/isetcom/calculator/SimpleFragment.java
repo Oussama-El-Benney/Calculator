@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,7 +18,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class SimpleFragment extends Fragment {
-
+    EditText edt1, edt2;
+    Button btnadd, btnsub, btnmul, btndiv;
+    TextView txtv;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -58,7 +64,58 @@ public class SimpleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View inf = inflater.inflate(R.layout.fragment_simple, container, false);
+
+        edt1 = inf.findViewById(R.id.fop1);
+        edt2 = inf.findViewById(R.id.fop2);
+        txtv = inf.findViewById(R.id.simpleres);
+        btnadd = inf.findViewById(R.id.add);
+        btnsub = inf.findViewById(R.id.sous);
+        btnmul = inf.findViewById(R.id.mul);
+        btndiv = inf.findViewById(R.id.div);
+
+        //Récupérer la chaine de caractère "Result = " à partir du fichier strings.xml
+        String msg = getResources().getString(R.string.res);
+
+        btnadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int opadd = Integer.valueOf(edt1.getText().toString()) + Integer.valueOf(edt2.getText().toString());
+                txtv.setText(msg + opadd);
+            }
+        });
+
+        btnsub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int opsous = Integer.valueOf(edt1.getText().toString()) - Integer.valueOf(edt2.getText().toString());
+                txtv.setText(msg + opsous);
+            }
+        });
+
+        btnmul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int opmul = Integer.valueOf(edt1.getText().toString()) * Integer.valueOf(edt2.getText().toString());
+                txtv.setText(msg + opmul);
+            }
+        });
+
+        btndiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double opdiv=0;
+                int o1 = Integer.valueOf(edt1.getText().toString());
+                int o2 = Integer.valueOf(edt2.getText().toString());
+                if(o2 != 0) {
+                    opdiv = (double)o1 / (double)o2;
+                }else{
+                    Toast.makeText(getContext(), "Opération impossible avec opérande 2 = 0 !", Toast.LENGTH_LONG).show();
+                }
+                txtv.setText(msg + opdiv);
+            }
+        });
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_simple, container, false);
+        return inf;
     }
-}
+    }

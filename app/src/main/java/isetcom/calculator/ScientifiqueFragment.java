@@ -7,6 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,7 +19,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ScientifiqueFragment extends Fragment {
-
+    EditText edt;
+    TextView tvres;
+    Button btnc;
+    RadioButton rbl, rbe, rbr;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,6 +67,42 @@ public class ScientifiqueFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_scientifique, container, false);
+        View inf = inflater.inflate(R.layout.fragment_scientifique, container, false);
+        edt = inf.findViewById(R.id.fop3);
+        tvres = inf.findViewById(R.id.res);
+        btnc = inf.findViewById(R.id.fragcalc);
+        rbl = inf.findViewById(R.id.rblog);
+        rbe = inf.findViewById(R.id.rbexp);
+        rbr = inf.findViewById(R.id.rbrac);
+        btnc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String s1 = edt.getText().toString();
+                String msg = getResources().getString(R.string.res);
+                int x1 = 0;
+                if(s1.isEmpty()){
+                    Toast.makeText(getContext(), "enter a value !", Toast.LENGTH_LONG).show();
+                }else{
+                 x1 = Integer.valueOf(s1);}
+                double r=0;
+                    if(rbl.isChecked()){
+                        r = Math.log((double)x1);
+                        tvres.setText(msg + r);
+                    }
+                    if(rbe.isChecked()){
+                        r = Math.exp((double)x1);
+                        tvres.setText(msg+r);
+                    }
+                    if(rbr.isChecked()){
+                        r = Math.sqrt((double)x1);
+                        tvres.setText(msg+r);
+                    }
+                if(!rbl.isChecked() && !rbe.isChecked() && !rbr.isChecked()){
+                    Toast.makeText(getContext(), "Il faut choisir une opération !", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        return inf;
     }
 }

@@ -35,7 +35,7 @@
                     android:background="@drawable/text_view_style"/>
 
                 <EditText
-                    android:id="@+id/editTextNumber"
+                    android:id="@+id/fop1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -65,7 +65,7 @@
                     android:background="@drawable/text_view_style"/>
 
                 <EditText
-                    android:id="@+id/editTextNumber2"
+                    android:id="@+id/fop2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -83,33 +83,47 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/add" />
+                    android:layout_marginLeft="10dp"
+                    android:text="+" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/sous"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/sous" />
+                    android:layout_marginLeft="10dp"
+                    android:text="-" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/mul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/mul" />
+                    android:layout_marginLeft="10dp"
+                    android:text="*" />
 
                 <Button
-                    android:id="@+id/button4"
+                    android:id="@+id/div"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/div" />
+                    android:layout_marginLeft="10dp"
+                    android:text="/" />
             </LinearLayout>
+            <TextView
+                android:id="@+id/simpleres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/res"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:background="@drawable/text_view_style"/>
         </LinearLayout>
     </ScrollView>
 

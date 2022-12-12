@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         l = log.getText().toString();
         p = pass.getText().toString();
         if(l.equals("admin") && p.equals("admin")){
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            Intent i = new Intent(LoginActivity.this, activity_calculate.class);
             i.putExtra("login", l);
             //i.putExtra("log", Integer.valueOf(l));
             startActivity(i);
