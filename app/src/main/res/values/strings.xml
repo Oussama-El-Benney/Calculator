@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="titre">Calculator</string>
+    <string name="saisie">Enter the two operands</string>
+    <string name="txtop1">1st</string>
+    <string name="txtop2">2nd</string>
+    <string name="op1">1st Operand</string>
+    <string name="op2">2nd Operand</string>
+    <string name="neg">(-)</string>
+    <string name="txtop">Choose an operation</string>
+    <string name="add">Addition</string>
+    <string name="sous">Subtraction</string>
+    <string name="mul">Multiplication</string>
+    <string name="div">Division</string>
+    <string name="cal">Calculate</string>
+    <string name="res">Result =</string>
+    <string name="loginhint">Enter Your Login</string>
+    <string name="loginpass">Enter Your Password</string>
+    <string name="loginbtn">Login</string>
+    <string name="logerror">Falsy Login or password</string>
+    <string name="simple">Simple</string>
+    <string name="scientifique">Scientifique</string>
+
+</resources>
